@@ -34,3 +34,4 @@ RUN LIBUV_VERSION=1.4.2 \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
+
