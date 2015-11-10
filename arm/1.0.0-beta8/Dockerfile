@@ -23,7 +23,7 @@ RUN LIBUV_VERSION=1.4.2 \
 	&& sh autogen.sh && ./configure && make && make install \
 	&& rm -rf /usr/local/src/libuv-$LIBUV_VERSION \
 	&& ldconfig \
-	&& curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
+	&& curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh \
 	&& source $DNX_USER_HOME/dnvm/dnvm.sh \
 	&& dnvm install $DNX_VERSION -alias default \
 	&& dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default \
