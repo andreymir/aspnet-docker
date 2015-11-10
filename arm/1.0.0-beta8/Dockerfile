@@ -24,9 +24,9 @@ RUN LIBUV_VERSION=1.4.2 \
 	&& rm -rf /usr/local/src/libuv-$LIBUV_VERSION \
 	&& ldconfig \
 	&& curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh \
-	&& source $DNX_USER_HOME/dnvm/dnvm.sh \
+	&& bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
 	&& dnvm install $DNX_VERSION -alias default \
-	&& dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default \
+	&& dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default" \
 	&& apt-get -y purge autoconf automake build-essential libtool \
 	&& apt-get -y purge unzip curl \
 	&& apt-get -y autoremove \
